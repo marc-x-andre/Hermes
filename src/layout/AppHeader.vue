@@ -5,15 +5,20 @@ const api = useApiStore();
 </script>
 
 <template>
-  <n-page-header title="Claude Hub" subtitle="The movie manager for a Claude">
+  <n-page-header title="Hermes" subtitle="A personal dashboard">
     <template #avatar>
       <n-avatar src="/favicon.webp" style="background-color: white" />
     </template>
     <template #default>
       <n-space>
         <template v-if="api.loading">
-          <n-skeleton v-for="i in 3" :key="i" :width="isMobile ? '42px' : '78px'" :size="isMobile ? 'tiny' : 'medium'"
-            :sharp="false" />
+          <n-skeleton
+            v-for="i in 3"
+            :key="i"
+            :width="isMobile ? '42px' : '78px'"
+            :size="isMobile ? 'tiny' : 'medium'"
+            :sharp="false"
+          />
         </template>
         <template v-else>
           <router-link to="/">

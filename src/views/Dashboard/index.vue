@@ -9,7 +9,7 @@ import MainLayout from "@/layout/MainLayout.vue";
   <MainLayout class="dashboard">
     <n-space vertical size="large">
       <div>
-        <n-h1 style="margin: 0">Hi Claude!</n-h1>
+        <n-h1 style="margin: 0">Hi Marc!</n-h1>
         <n-space justify="space-between">
           <n-text class="lighter">How are you doing?</n-text>
           <n-text class="lighter">12034 entries</n-text>

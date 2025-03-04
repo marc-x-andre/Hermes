@@ -4,12 +4,13 @@ import { defineStore } from "pinia";
 import { initializeApp } from "firebase/app";
 
 const app = initializeApp({
-  apiKey: "AIzaSyCZ23BcqG4AHXpb6firF5tsycKzbO4op7A",
-  authDomain: "claude-hub.firebaseapp.com",
-  projectId: "claude-hub",
-  storageBucket: "claude-hub.appspot.com",
-  messagingSenderId: "152386232202",
-  appId: "1:152386232202:web:a5fdf8d8f1ecf713177273",
+  apiKey: "AIzaSyAyjrt4tS-2ypiu5tcIjbqNXQAHbqdaUEY",
+  authDomain: "hermes-mxa.firebaseapp.com",
+  projectId: "hermes-mxa",
+  storageBucket: "hermes-mxa.firebasestorage.app",
+  messagingSenderId: "1097947031531",
+  appId: "1:1097947031531:web:3ad3e2f08a332f43afdbae",
+  measurementId: "G-86WX69L9Y9",
 });
 
 export const useFirebaseStore = defineStore("firebase", () => {

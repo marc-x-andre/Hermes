@@ -2,7 +2,7 @@
   <div class="footer">
     <p>
       <n-gradient-text :size="16" gradient="linear-gradient(45deg, #888, #333)">
-        Living the Claude Life
+        Insert quote here
       </n-gradient-text>
     </p>
   </div>
