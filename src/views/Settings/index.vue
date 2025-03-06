@@ -33,9 +33,11 @@ import { useUserSettingsStore } from "../../stores/user/settings";
 import Account from "./Account.vue";
 import General from "./General.vue";
 import Premium from "./Premium.vue";
+import { useUserSettingsV2Store } from "../../stores/user/settings.v2";
 
 const userSettingsStore = useUserSettingsStore();
 const { settings } = storeToRefs(userSettingsStore);
+const userSettingsV2Store = useUserSettingsV2Store();
 
 if (settings.value === undefined) {
   userSettingsStore.fetchSettings();
@@ -47,6 +49,7 @@ setTimeout(() => {
     moon: true,
     weather: true,
   });
+  userSettingsV2Store.saveSettings();
 }, 1000);
 
 watch(settings, (newValue, oldValue) => {
