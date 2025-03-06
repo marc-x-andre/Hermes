@@ -14,7 +14,7 @@ const fetchACollection = async (
   return querySnapshot.docs.map((d) => d.data() as any);
 };
 
-export const useFirestoreStore = defineStore("firestore", () => {
+export const useFirestoreStore = defineStore("database", () => {
   const { firebaseApp } = useFirebaseStore();
   const firestore = getFirestore(firebaseApp);
 

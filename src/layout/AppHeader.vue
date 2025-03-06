@@ -30,6 +30,9 @@ const api = useApiStore();
           <router-link to="/new">
             <n-button :size="isMobile ? 'tiny' : 'medium'">New</n-button>
           </router-link>
+          <router-link to="/settings">
+            <n-button :size="isMobile ? 'tiny' : 'medium'">Settings</n-button>
+          </router-link>
         </template>
       </n-space>
     </template>

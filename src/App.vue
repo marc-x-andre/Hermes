@@ -5,26 +5,24 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import { useAuthStore } from './stores/auth';
-import { watch } from 'vue';
-import { storeToRefs } from 'pinia';
-import { useFirestoreStore } from './stores/database';
+import { useRouter } from "vue-router";
+import { useAuthStore } from "./stores/auth";
+import { watch } from "vue";
+import { storeToRefs } from "pinia";
 
-const router = useRouter()
-const authStore = useAuthStore()
-const firestoreStore = useFirestoreStore()
-const { userData } = storeToRefs(authStore)
+const router = useRouter();
+const authStore = useAuthStore();
+const { userData } = storeToRefs(authStore);
 
 const redirectOnLogin = () => {
   if (authStore.userData?.accessToken) {
-    router.push('dash')
+    router.push("dash");
   } else {
-    router.push('/')
+    router.push("/");
   }
-}
+};
 // On app initialization
-redirectOnLogin()
+redirectOnLogin();
 // When user sign in/out
-watch(userData, redirectOnLogin)
+watch(userData, redirectOnLogin);
 </script>

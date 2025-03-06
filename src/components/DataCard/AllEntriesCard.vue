@@ -1,14 +1,11 @@
 <template>
-  <DataCard title="All Entries" icon="/logo/computer-disk.webp" color="#eeead5" :loading="loading">
-    <n-data-table :columns="columns" :data="possessions" :pagination="true" :bordered="false" />
+  <DataCard title="All Entries" icon="/logo/computer-disk.webp" color="#eeead5">
+    <n-data-table :columns="columns" :pagination="true" :bordered="false" />
   </DataCard>
 </template>
 
 <script setup lang="ts">
 import DataCard from "@/components/DataCard/DataCard.vue";
-import { useFirestoreStore } from "@/stores/database";
-
-const { loading, possessions } = useFirestoreStore();
 
 const columns = [
   {
@@ -38,8 +35,4 @@ const data = [
   { userId: 4, name: "Don't Look Back in Anger", note: "4:48" },
   { userId: 12, name: "Champagne Supernova", note: "7:27" },
 ];
-
-console.log(possessions);
-
-
 </script>

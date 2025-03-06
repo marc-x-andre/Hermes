@@ -61,6 +61,7 @@ import {
   NListItem,
   NTag,
   NH3,
+  NTabPane,
 } from "naive-ui";
 
 import App from "@/App.vue";
@@ -129,6 +130,7 @@ const naive = create({
     NListItem,
     NTag,
     NH3,
+    NTabPane,
   ],
 });
 
