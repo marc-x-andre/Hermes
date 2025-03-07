@@ -55,6 +55,7 @@ const validate = async (e) => {
   try {
     await formRef.value.validate();
     console.log(model);
+    props.settings = model;
   } catch (error) {
     console.log(error);
   }

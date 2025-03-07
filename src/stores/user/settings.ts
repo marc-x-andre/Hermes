@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
+import { getDoc, setDoc } from "firebase/firestore";
+import { useFirestore } from "@vueuse/firebase";
 import { useFirestoreStore } from "../firestore";
-import { addDoc, getDocs } from "firebase/firestore";
-import { ref } from "vue";
 
 export type Settings = {
   gratitude: boolean;
@@ -10,23 +10,20 @@ export type Settings = {
   customChecklist: string[];
 };
 
-export const useUserSettingsStore = defineStore("userSettings", () => {
-  const { getSettingsCol } = useFirestoreStore();
+export const useSettingsStore = defineStore("settings", () => {
+  const { getSettingsDoc } = useFirestoreStore();
+  const settingsQuery = getSettingsDoc();
+  const settings = useFirestore(settingsQuery);
 
-  const settings = ref<Settings | undefined>(undefined);
-  console.log("useFirestoreStore() : ", useFirestoreStore());
   const fetchSettings = async () => {
-    const querySnapshot = await getDocs(getSettingsCol());
-    if (querySnapshot.docs[0]) {
-      settings.value = querySnapshot.docs[0].data() as Settings;
-    }
-    console.log("Column settings fetch : ", querySnapshot.docs);
+    const querySnapshot = await getDoc(settingsQuery);
+    settings.value = querySnapshot.data() as Settings;
   };
 
-  const saveSettings = async (newSettings: Settings) => {
-    const docRef = await addDoc(getSettingsCol(), newSettings);
-    console.log("Document written with ID: ", docRef.id);
-    settings.value = newSettings;
+  const saveSettings = async (newSettings: Partial<Settings>) => {
+    const newValue = { ...settings.value, ...newSettings };
+    await setDoc(settingsQuery, newValue);
+    settings.value = newValue;
   };
 
   return {

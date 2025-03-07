@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useFirebaseStore } from "./firebase";
-import { getFirestore, collection } from "firebase/firestore";
+import { getFirestore, doc } from "firebase/firestore";
 import { useAuthStore } from "./auth";
 
 export const useFirestoreStore = defineStore("firestore", () => {
@@ -8,17 +8,12 @@ export const useFirestoreStore = defineStore("firestore", () => {
   const { userData } = useAuthStore();
   const firestore = getFirestore(firebaseApp);
 
-  const getEntryCol = () => {
-    return collection(firestore, "users", `${userData?.email}`, "entries");
+  const getSettingsDoc = () => {
+    return doc(firestore, "users", `${userData?.email}`);
   };
 
-  const getSettingsCol = () => {
-    return collection(firestore, "users", `${userData?.email}`, "settings");
-  };
-  console.log("getSettingsCol : ", getSettingsCol);
   return {
     firestore,
-    getEntryCol,
-    getSettingsCol,
+    getSettingsDoc,
   };
 });

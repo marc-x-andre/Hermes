@@ -79,7 +79,6 @@ export const useAuthStore = defineStore("auth", () => {
     signOut(auth)
       .then(() => {
         userData.value = undefined;
-        userData.value = undefined;
         localStorage.setItem("userData", "");
       })
       .catch((err) => {

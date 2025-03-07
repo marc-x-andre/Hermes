@@ -27,34 +27,27 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from "vue";
 import { storeToRefs } from "pinia";
-import { useUserSettingsStore } from "../../stores/user/settings";
 import Account from "./Account.vue";
 import General from "./General.vue";
 import Premium from "./Premium.vue";
-import { useUserSettingsV2Store } from "../../stores/user/settings.v2";
+import { useSettingsStore } from "../../stores/user/settings";
 
-const userSettingsStore = useUserSettingsStore();
-const { settings } = storeToRefs(userSettingsStore);
-const userSettingsV2Store = useUserSettingsV2Store();
+const userSettingsV2Store = useSettingsStore();
+const { settings } = storeToRefs(userSettingsV2Store);
 
 if (settings.value === undefined) {
-  userSettingsStore.fetchSettings();
+  userSettingsV2Store.fetchSettings();
 }
 
 setTimeout(() => {
-  userSettingsStore.saveSettings({
+  userSettingsV2Store.saveSettings({
     gratitude: true,
     moon: true,
     weather: true,
+    customChecklist: ["Buy groceries", "Buy groceries", "Buy groceries"],
   });
-  userSettingsV2Store.saveSettings();
 }, 1000);
-
-watch(settings, (newValue, oldValue) => {
-  console.log(newValue, oldValue);
-});
 </script>
 
 <style lang="sass" scoped>

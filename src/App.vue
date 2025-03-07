@@ -16,7 +16,9 @@ const { userData } = storeToRefs(authStore);
 
 const redirectOnLogin = () => {
   if (authStore.userData?.accessToken) {
-    router.push("dash");
+    if (window.location.pathname === "/") {
+      router.push("dash");
+    }
   } else {
     router.push("/");
   }
