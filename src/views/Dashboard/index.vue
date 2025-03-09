@@ -2,6 +2,7 @@
 import LastAddedCard from "@/components/DataCard/LastAddedCard.vue";
 import AllEntriesCard from "@/components/DataCard/AllEntriesCard.vue";
 import FavoritesOfMomentCard from "@/components/DataCard/FavoritesOfMomentCard.vue";
+import GoalCard from "@/components/DataCard/GoalCard.vue";
 import MainLayout from "@/layout/MainLayout.vue";
 </script>
 
@@ -17,6 +18,15 @@ import MainLayout from "@/layout/MainLayout.vue";
       </div>
 
       <n-grid y-gap="24" x-gap="24" cols="1 768:2 1000:3">
+        <n-gi span="2">
+          <GoalCard
+            :goal="{
+              title: 'Save $100`000',
+              progress: 81,
+              deadline: '2026-03-15',
+            }"
+          />
+        </n-gi>
         <n-gi span="2">
           <FavoritesOfMomentCard />
         </n-gi>
