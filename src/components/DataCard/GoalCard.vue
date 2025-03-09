@@ -23,7 +23,7 @@ function isDeadlineSoon(deadline) {
 </script>
 
 <template>
-  <DataCard :title="goal.title" icon="/logo/money-bag.png">
+  <DataCard :title="goal.title" :icon="goal.icon">
     <n-tag round strong type="success"> On track </n-tag>
 
     <n-text depth="3"> 100 / 100 </n-text>

@@ -62,6 +62,7 @@ import {
   NTag,
   NH3,
   NTabPane,
+  NCalendar,
 } from "naive-ui";
 
 import App from "@/App.vue";
@@ -131,6 +132,7 @@ const naive = create({
     NTag,
     NH3,
     NTabPane,
+    NCalendar,
   ],
 });
 
